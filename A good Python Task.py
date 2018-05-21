@@ -6,11 +6,11 @@ from googlesearch import search
 import webbrowser
 import commands
 
-# 
+# Creating function to access date and time
 def dateandTime():
 	return datetime.now()
 
-
+# Creating function to extract processor information for different OS
 def cpuInfo():
 	#  this is platform checking library 
     if platform.system() == "Windows":
@@ -32,12 +32,13 @@ def cpuInfo():
 	return cpu_info
 	
         
-
+# Creating function to extract RAM information
 def ramInfo():
 	y=commands.getoutput('free -m | grep -i mem')
 	ram_output=y.split(":")[1].lstrip().split()[0]
 	return ram_output+" MB"
 
+# Creating function to call search function from googlesearch module
 def searchGoogle():
 
 	query =raw_input("Enter your query : ")
@@ -45,6 +46,7 @@ def searchGoogle():
 	for j in search(query, tld="com", num=10, stop=1, pause=2):
 		print(j)
 
+# Creating function to call open fucntion of webbrowser module
 def openUrl():
 	new=2	
 	#url="http://www.google.com"
@@ -53,7 +55,8 @@ def openUrl():
 	# Open URL in new browser window
 	webbrowser.open(url,new=new) # opens in default browser
 
-def shutOpt():
+# Creating function for various Shutdown options
+def shutOptions():
 	while(1):
 		opt=raw_input("Type s/l/h/p for shutdown/logout/hibernate/suspend respectively : ")
 		if opt=='s':os.system('shutdown -h now')
@@ -64,18 +67,19 @@ def shutOpt():
 		elif opt=='p':os.system('sudo pm-suspend')
 		else: print("invalid option")	
 	
-
+# Creating function to execute command from root access
 def rebootSys():
 	os.system('sudo reboot')
 
+# Creating function to run python file
 def runPyFile():
 	loc=raw_input("Enter name of python file with location : ")
-	#1st way
+	#1st way to run file 
 	execfile(loc)
-	#2ndway
+	#2nd way to run file
 	os.system('python '+loc)
 
-
+# Displaying options
 while(1):
 	print"\nMENU:"
 	print"1.DATE and TIME"
@@ -107,7 +111,7 @@ while(1):
 	elif ch==8:
 		exit()
 	elif ch==9:
-		os.system('gedit Desktop/task.py')
+		os.system('gedit Desktop/task.py') # returns to the source code
 		exit()
 	else:
 		print"Please Enter a valid Choice"
