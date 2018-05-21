@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 
-from datetime import datetime
 import platform, os, subprocess, re
+from datetime import datetime
 from googlesearch import search
 import webbrowser
 import commands
