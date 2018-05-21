@@ -1,7 +1,8 @@
+
+
 a=raw_input("Enter first name")
 
 b=raw_input("Enter last name")
-
 
 
 c=raw_input("Enter a no ")
